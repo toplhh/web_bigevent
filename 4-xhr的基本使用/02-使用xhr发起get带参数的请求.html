@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let xhr = new XMLHttpRequest()
+        // 使用xhr对象发起带参数的GET请求时，只需在调用xhr.open期间。为URL地址指定参数即可
+        xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks?id=1')
+        xhr.send()
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText)
+            }
+        }
+    </script>
+</body>
+</html>

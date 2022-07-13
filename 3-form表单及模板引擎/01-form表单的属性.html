@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- action属性：用来规定当表单提交数据时，向何处发送表单数据 -->
+    <!-- target属性：用来规定在何处打开action URl。_blank:在新窗口打开。_self:默认，在相同的框架打开-->
+    <!-- method:用来规定以何种方式把表单数据提交到action URL。 get：适合用来提交少量的、简单的数据。post：适合用来提交大量的、复杂的、或包含文件上传的数据。 -->
+    <form action="/login" target="_blank" method="post">
+        <input type="text" name="email_or_mobil">
+        <input type="password" name="password">
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>

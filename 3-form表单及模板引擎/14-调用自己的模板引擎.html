@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./lib/template-web.js"></script> -->
+
+    <!-- 5.导入自定义的模板引擎 -->
+    <script src="./js/tpl.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <!-- 1.定义模板：想要渲染的html结构 -->
+    <script type="text/html" id="tpl-user">
+        <div>姓名：{{name}}</div>
+        <div>性别：{{sex  }}</div>
+        <div>年龄：{{  age  }}</div>
+        <div>住址：{{  address}}</div>
+    </script>
+
+    <script>
+        // 2.定义数据
+        let data = {name: '张三', sex: '男', age: 18, address: '黑马程序员'}
+
+        // 3.调用模板引擎
+        let res = template('tpl-user', data)
+        // console.log(res)
+
+        // 4.渲染html结构
+        document.getElementById('container').innerHTML = res
+    </script>
+</body>
+</html>

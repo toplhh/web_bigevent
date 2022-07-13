@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.导入模板引擎 -->
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+
+
+    <!-- 3.定义模板  模板的html结构，必须定义到script中 -->
+    <!-- {{}}的作用就像${}的作用一样 -->
+    <script type="text/html" id="tem">
+        <h1>{{name}}-----{{age}}</h1>
+        注册时间：{{resTime | filterTime}}
+    </script>
+
+
+    <script>
+        // 定义一个过滤时间的过滤器
+        template.defaults.imports.filterTime = function(data) {
+            let y = data.getFullYear()
+            let m = data.getMonth() + 1
+            let d = data.getDate()
+
+            return y + '-' + m + '-' + d
+        }
+        // 2.定义数据
+        let data = {name: 'zs', age: 20, resTime: new Date()}
+
+        // 4.调用template函数  需要两个参数（模板id，数据）
+        let res = template('tem', data)
+        // console.log(res)
+
+        // 5.渲染html结构
+        $('#container').html(res)
+
+        
+    </script>
+
+    
+</body>
+</html>
